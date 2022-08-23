@@ -20,6 +20,12 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="{% url 'djangoapp:about' %}">About US</a>
                     <a class="navbar-brand" href="{% url 'djangoapp:contact' %}">Contact US</a>
+                    <form class="navbar-brand" action="">
+                        <input type="text" placeholder="User Name">
+                        <input type="password" placeholder="Password">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button class="btn btn-link">logout</button>
+                    </form>
                 </div>
             </div>
         </nav>
