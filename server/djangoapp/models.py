@@ -13,13 +13,24 @@ def __str__(self):
             "Description: " + self.description
 
 class CarModel(models.Model):
+    SEDAN = 'sedan'
+    SUV = 'suv'
+    WAGON = 'wagon'
+    NAME_CHOICES = [
+        (SEDAN, 'Sedan'),
+        (SUV, 'Suv'),
+        (WAGON, 'Wagon')
+    ]
     carmake = models.ForeignKey(CarMake, on_delete=models.CASCADE)
-    name = models.CharField(max_length=30)
-# - Dealer id, used to refer a dealer created in cloudant database
-# - Type (CharField with a choices argument to provide limited choices such as Sedan, SUV, WAGON, etc.)
-# - Year (DateField)
-# - Any other fields you would like to include in car model
-# - __str__ method to print a car make object
+    name = models.CharField(max_length=20, choices=NAME_CHOICES)
+    dealerid = models.IntegerField()
+    year = models.DateField()
+
+def __str__(self):
+    return "Car Make: " + self.carmake + "," + \
+            "Name: " + self.name + "," + \
+            "Dealer ID: " + self.dealerid + "," + \
+            "Year: " + str(self.year) 
 
 
 # <HINT> Create a plain Python class `CarDealer` to hold dealer data
