@@ -24,7 +24,7 @@ class CarModel(models.Model):
     name = models.CharField(max_length=20)
     dealerid = models.IntegerField()
     year = models.DateField()
-    # carmake = models.ForeignKey(CarMake, on_delete=models.CASCADE)
+    carmake = models.ForeignKey(CarMake, on_delete=models.CASCADE)
 
     def __str__(self):
         return "Car Make: " + self.carmake + "," + \
