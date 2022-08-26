@@ -9,7 +9,7 @@ class CarMake(models.Model):
     description = models.CharField(max_length=1000)
 
     def __str__(self):
-        return "CarMake: " + slef.name + "," + \
+        return "CarMake: " + self.name + "," + \
                 "Description: " + self.description
 
 class CarModel(models.Model):
@@ -21,10 +21,10 @@ class CarModel(models.Model):
         (SUV, 'Suv'),
         (WAGON, 'Wagon')
     ]
-    carmake = models.ForeignKey(CarMake, on_delete=models.CASCADE)
-    name = models.CharField(max_length=20, choices=NAME_CHOICES)
+    name = models.CharField(max_length=20)
     dealerid = models.IntegerField()
     year = models.DateField()
+    # carmake = models.ForeignKey(CarMake, on_delete=models.CASCADE)
 
     def __str__(self):
         return "Car Make: " + self.carmake + "," + \

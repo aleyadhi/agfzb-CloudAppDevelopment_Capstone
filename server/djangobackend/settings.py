@@ -28,7 +28,7 @@ DEBUG = True
 
 APPEND_SLASH = True
 
-ALLOWED_HOSTS = ['samran.us-south.cf.appdomain.cloud']
+ALLOWED_HOSTS = []
 
 
 # Application definition

@@ -14,10 +14,10 @@ from .models import CarModel, CarMake
 #     list_display = ['carmake', 'name', 'dealerid', 'year']
 
 # # CarMakeAdmin class with CarModelInline
-# class CarMakeAdmin(admin.ModelAdmin):
+class CarMakeAdmin(admin.ModelAdmin):
 #     inlines = [CarModelInline]
-#     list_display = ['name']
+    fields = ['name', 'description']
 
 # Register models here
-admin.site.register(CarMake)
+admin.site.register(CarMake, CarMakeAdmin)
 admin.site.register(CarModel)
