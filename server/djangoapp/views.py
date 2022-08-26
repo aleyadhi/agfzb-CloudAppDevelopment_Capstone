@@ -99,9 +99,11 @@ def get_dealer_details(request, dealer_id):
 
 # Create a `add_review` view to submit a review
 def add_review(request, dealer_id):
-    if user.is_authonticate:
+    if request.user.is_authonticate:
         review = {}
+        json_payload = {}
         review["time"] = datetime.utcnow().isoformat()
         review["dealership"] = 11
-        review["review"] = "This is a great car dealer"        
+        review["review"] = "This is a great car dealer"
+        json_payload["review"] = review        
 
