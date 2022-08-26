@@ -8,9 +8,9 @@ class CarMake(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=1000)
 
-def __str__(self):
-    return "CarMake: " + slef.name + "," + \
-            "Description: " + self.description
+    def __str__(self):
+        return "CarMake: " + slef.name + "," + \
+                "Description: " + self.description
 
 class CarModel(models.Model):
     SEDAN = 'sedan'
@@ -26,11 +26,11 @@ class CarModel(models.Model):
     dealerid = models.IntegerField()
     year = models.DateField()
 
-def __str__(self):
-    return "Car Make: " + self.carmake + "," + \
-            "Name: " + self.name + "," + \
-            "Dealer ID: " + self.dealerid + "," + \
-            "Year: " + str(self.year) 
+    def __str__(self):
+        return "Car Make: " + self.carmake + "," + \
+                "Name: " + self.name + "," + \
+                "Dealer ID: " + self.dealerid + "," + \
+                "Year: " + str(self.year) 
 
 
 # <HINT> Create a plain Python class `CarDealer` to hold dealer data
