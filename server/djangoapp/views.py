@@ -101,11 +101,20 @@ def get_dealer_details(request, dealer_id):
 
 # Create a `add_review` view to submit a review
 def add_review(request, dealer_id):
-    if request.user.is_authonticate:
-        review = {}
+    if request.method == "GET":
+        if request.user.is_authonticate:
+            review = {}
+            
+            review["time"] = datetime.utcnow().isoformat()
+            review["dealership"] = 11
+            review["review"] = "This is a great car dealer"
+            review["review"] = request.review        
+            return render(request, 'djangoapp/add_review.html', review)
+    elseif request.method == "post":
         json_payload = {}
-        review["time"] = datetime.utcnow().isoformat()
-        review["dealership"] = 11
-        review["review"] = "This is a great car dealer"
-        json_payload["review"] = review        
-        return render(request, 'djangoapp/add_review.html', review)
+        json_payload["time"] = datetime.utcnow().isoformat()
+        json_payload["dealership"] = 11
+        json_payload["review"] = "This is a great car dealer"
+        json_payload["review"] = request.review
+         return render(request, 'djangoapp/add_review.html', json_payload)        
+
